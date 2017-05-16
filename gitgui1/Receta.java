@@ -5,6 +5,8 @@
  */
 package gitgui1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alumnociclo
@@ -12,17 +14,18 @@ package gitgui1;
 public class Receta {
     
    private String nombre;
-   private String ingredientes;
+   ArrayList<String> Ingredientes = new ArrayList<String>();
    private String preparacion;
    
    Receta(){
        
    }
     
-    Receta(String nombre,String ingredientes,String preparacion){
+    Receta(String nombre,ArrayList<String> ingredientes,String preparacion){
       this.nombre=nombre;
-      this.ingredientes=ingredientes;
+      this.Ingredientes=ingredientes;
       this.preparacion=preparacion;
+      
     }
 
     public String getNombre() {
@@ -33,12 +36,12 @@ public class Receta {
         this.nombre = nombre;
     }
 
-    public String getIngredientes() {
-        return ingredientes;
+    public ArrayList<String> getIngredientes() {
+        return Ingredientes;
     }
 
-    public void setIngredientes(String ingredientes) {
-        this.ingredientes = ingredientes;
+    public void setIngredientes(ArrayList<String> ingredientes) {
+        this.Ingredientes = Ingredientes;
     }
 
     public String getPreparacion() {
