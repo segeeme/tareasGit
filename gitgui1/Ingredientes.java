@@ -14,6 +14,28 @@ public class Ingredientes {
   private String cantidad;
   private String nombre;
   
+  Ingredientes(String cantidad,String nombre){
+    this.nombre=nombre;
+    this.cantidad=cantidad;
+    
+  }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+  
     
     
 }
