@@ -54,9 +54,12 @@ public class Receta {
     public void setPreparacion(ArrayList<String> preparacion) {
         this.preparacion = preparacion;
     }
-    public void addIngrediente(Ingredeinte ingrediente){
-    	this.ingredientes.add(ingrediente);
+    public void addIngrediente(Ingredientes ingredientes){
+    	this.Ingredientes.add(ingrediente);
     }
+    public void addPreparacion(String preparacion) {
+		this.preparacion.add(preparacion);
+	}
     
 
     
