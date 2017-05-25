@@ -10,21 +10,21 @@ package gitgui1;
  * @author alumnociclo
  */
 public class Ingredientes {
-   
-  private String cantidad;
-  private String nombre;
-  
+	
+  private String nombre; 
+  private float cantidad;
+  private String unidad;
   Ingredientes(String cantidad,String nombre){
     this.nombre=nombre;
     this.cantidad=cantidad;
     
   }
 
-    public String getCantidad() {
+    public float getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(float cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -36,6 +36,13 @@ public class Ingredientes {
         this.nombre = nombre;
     }
   
+    public void getUnidad(){
+    	return unidad;
+    }	
+    public void setUnidad(String unidad){
+    	this.unidad=unidad;
+    }
     
+    }
     
-}
+
