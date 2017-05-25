@@ -14,7 +14,6 @@ public class Ingredientes {
   private String nombre; 
   private float cantidad;
   private String unidad;
-  
   Ingredientes(String cantidad,String nombre){
     this.nombre=nombre;
     this.cantidad=cantidad;
@@ -43,15 +42,6 @@ public class Ingredientes {
     public void setUnidad(String unidad){
     	this.unidad=unidad;
     }
-    public String toString() {
-		return cantidad + " " + unidad + " de " + nombre;
-    }
-    
-    public static void main(String[] args) {
-		Ingredientes ingrediente = new	Ingredientes(3, "Kg","de","tomates");
-		System.out.println(ingrediente.toString());
-		
-	}
     
     }
     
