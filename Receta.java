@@ -55,10 +55,41 @@ public class Receta {
         this.preparacion = preparacion;
     }
     public void addIngrediente(Ingredientes ingredientes){
-    	this.Ingredientes.add(ingrediente);
+    	this.Ingredientes.add(ingredientes);
     }
     public void addPreparacion(String preparacion) {
 		this.preparacion.add(preparacion);
+	}
+    
+    public String listarIngredientes() {
+		String lista="";
+		for(Ingredientes in:Ingredientes) {
+			lista+=in.toString()+"\n";
+		}
+		return lista;
+	}
+	public String listarPreparacion() {
+		String lista="";
+		for(int i=0; i<preparacion.size(); i++) {
+			int pasar = i+1;
+			lista+="Pasar "+ pasar + " : " +preparacion.get(i)+"\n";
+		}
+		return lista;
+	}
+
+	public String toString() {
+		return "Receta: " + nombre.toUpperCase() + "\n\nIngredientes\n" + listarIngredientes() + "\nPreparacion\n" + listarPreparacion();
+	}
+	 public static void main(String[] args) {
+		Ingredientes ingrediente1 = new Ingredientes(3, "kg", "tomates");
+		Ingredientes ingrediente2 = new Ingredientes(3, "kg", "macarrones");
+		Receta r = new Receta();
+		r.setNombre("macarrones con Tomate");
+		r.addIngrediente(ingrediente1);
+		r.addIngrediente(ingrediente2);
+		r.addPreparacion("Cortar los Tomates");
+		r.addPreparacion("Calentar los macarrones en olla");
+		System.out.println(r.toString());
 	}
     
 
