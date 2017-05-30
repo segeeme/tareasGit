@@ -16,7 +16,8 @@ public class Receta {
    private String nombre;
    ArrayList<String> preparacion = new ArrayList<String>();
    ArrayList<Ingredientes> Ingredientes = new ArrayList<Ingredientes>();
-
+   private int personas = 4;
+   private String autor;
 
    
    Receta(){
@@ -59,6 +60,22 @@ public class Receta {
     }
     public void addPreparacion(String preparacion) {
 		this.preparacion.add(preparacion);
+	}
+    
+    public int getPersonas() {
+		return personas;
+	}
+
+	public void setPersonas(int personas) {
+		this.personas = personas;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
     
     public String listarIngredientes() {
