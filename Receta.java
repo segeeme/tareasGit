@@ -12,57 +12,58 @@ import java.util.ArrayList;
  * @author alumnociclo
  */
 public class Receta {
-    
-   private String nombre;
-   ArrayList<String> preparacion = new ArrayList<String>();
-   ArrayList<Ingredientes> Ingredientes = new ArrayList<Ingredientes>();
-   private int personas = 4;
-   private String autor;
 
-   
-   Receta(){
-       
-   }
+	private String nombre;
+	ArrayList<String> preparacion = new ArrayList<String>();
+	ArrayList<Ingredientes> Ingredientes = new ArrayList<Ingredientes>();
+	private int personas = 4;
+	private String autor;
 
-    Receta(String nombre,ArrayList<Ingredientes>Ingredientes,ArrayList<String> preparacion){
+	public Receta(String nombre) {
+		this.nombre = nombre;
+	}
 
-      this.nombre=nombre;
-      this.Ingredientes=Ingredientes;
-      this.preparacion=preparacion;
-      
-    }
+	Receta(String nombre, ArrayList<Ingredientes> Ingredientes, ArrayList<String> preparacion) {
 
-    public String getNombre() {
-        return nombre;
-    }
+		this.nombre = nombre;
+		this.Ingredientes = Ingredientes;
+		this.preparacion = preparacion;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	}
 
-    public ArrayList<Ingredientes> getIngredientes() {
-        return Ingredientes;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setIngredientes(ArrayList<Ingredientes> ingredientes) {
-        this.Ingredientes = Ingredientes;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public ArrayList<String> getPreparacion() {
-        return preparacion;
-    }
+	public ArrayList<Ingredientes> getIngredientes() {
+		return Ingredientes;
+	}
 
-    public void setPreparacion(ArrayList<String> preparacion) {
-        this.preparacion = preparacion;
-    }
-    public void addIngrediente(Ingredientes ingredientes){
-    	this.Ingredientes.add(ingredientes);
-    }
-    public void addPreparacion(String preparacion) {
+	public void setIngredientes(ArrayList<Ingredientes> ingredientes) {
+		this.Ingredientes = Ingredientes;
+	}
+
+	public ArrayList<String> getPreparacion() {
+		return preparacion;
+	}
+
+	public void setPreparacion(ArrayList<String> preparacion) {
+		this.preparacion = preparacion;
+	}
+
+	public void addIngrediente(Ingredientes ingredientes) {
+		this.Ingredientes.add(ingredientes);
+	}
+
+	public void addPreparacion(String preparacion) {
 		this.preparacion.add(preparacion);
 	}
-    
-    public int getPersonas() {
+
+	public int getPersonas() {
 		return personas;
 	}
 
@@ -77,30 +78,33 @@ public class Receta {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-    
-    public String listarIngredientes() {
-		String lista="";
-		for(Ingredientes in:Ingredientes) {
-			lista+=in.toString()+"\n";
+
+	public String listarIngredientes() {
+		String lista = "";
+		for (Ingredientes in : Ingredientes) {
+			lista += in.toString() + "\n";
 		}
 		return lista;
 	}
+
 	public String listarPreparacion() {
-		String lista="";
-		for(int i=0; i<preparacion.size(); i++) {
-			int pasar = i+1;
-			lista+="Pasar "+ pasar + " : " +preparacion.get(i)+"\n";
+		String lista = "";
+		for (int i = 0; i < preparacion.size(); i++) {
+			int pasar = i + 1;
+			lista += "Pasar " + pasar + " : " + preparacion.get(i) + "\n";
 		}
 		return lista;
 	}
 
 	public String toString() {
-		return "Receta: " + nombre.toUpperCase() + "\n\nIngredientes\n" + listarIngredientes() + "\nPreparacion\n" + listarPreparacion();
+		return "Receta: " + nombre.toUpperCase() + "\n\nIngredientes\n" + listarIngredientes() + "\nPreparacion\n"
+				+ listarPreparacion();
 	}
-	 public static void main(String[] args) {
+
+	public static void main(String[] args) {
 		Ingredientes ingrediente1 = new Ingredientes(3, "kg", "tomates");
 		Ingredientes ingrediente2 = new Ingredientes(3, "kg", "macarrones");
-		Receta r = new Receta();
+		Receta r = new Receta("macarrones");
 		r.setNombre("macarrones con Tomate");
 		r.addIngrediente(ingrediente1);
 		r.addIngrediente(ingrediente2);
@@ -108,10 +112,24 @@ public class Receta {
 		r.addPreparacion("Calentar los macarrones en olla");
 		System.out.println(r.toString());
 	}
-    
 
-    
-    
-    
-    
+	public Receta recetaPara(int personas) {
+		Receta nueva = new Receta(this.getNombre());
+
+		nueva.setAutor(this.getAutor());
+
+		nueva.setPersonas(personas);
+
+		nueva.setPreparacion(this.getPreparacion());
+
+		ArrayList<Ingredientes> ingredientes = this.getIngredientes();
+
+		double todo = personas / this.getPersonas();
+		for (Ingredientes i : ingredientes) {
+			i.setCantidad((float) (i.getCantidad() * todo));
+		}
+		nueva.setIngredientes(ingredientes);
+		return nueva;
+	}
+
 }
