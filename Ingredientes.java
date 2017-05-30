@@ -15,11 +15,10 @@ public class Ingredientes {
   private float cantidad;
   private String unidad;
   
-  Ingredientes(float cantidad,String nombre,String unidad){
+  Ingredientes(float cantidad,String unidad,String nombre){
     this.nombre=nombre;
     this.cantidad=cantidad;
     this.unidad=unidad;
-    
   }
 
     public float getCantidad() {
@@ -49,7 +48,7 @@ public class Ingredientes {
     }
     
     public static void main(String[] args) {
-		Ingredientes ingrediente = new	Ingredientes(3, "Kg","tomates");
+		Ingredientes ingrediente = new	Ingredientes(3, "Kg de","tomates");
 		System.out.println(ingrediente.toString());
 		
 	}
